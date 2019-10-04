@@ -1,0 +1,40 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel serve lint:watch",
+    "serve": "DEBUG=app,api, MONGO_URI=mongodb://localhost:27017/test nodemon index.js -x babel-node -e js",
+    "test": "mocha --reporter progress util/test.setup.js \"root/**/*.spec.js\"",
+    "test:watch": "npm run test -- -- watch",
+    "lint": "esw index.js --color",
+    "lint:watch": "npm run lint -- --watch"
+  },
+  "author": "Furkan ACAR",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.4",
+    "nodemon": "^1.18.9",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.15.2",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-watch": "^5.0.1",
+    "mocha": "^6.0.2",
+    "morgan": "^1.9.1",
+    "progress": "^2.0.3",
+    "request": "^2.88.0"
+  }
+}
